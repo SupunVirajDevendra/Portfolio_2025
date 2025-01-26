@@ -19,7 +19,7 @@ const Banner = () => {
         loaded={particlesLoaded}
         options={{
           fpsLimit: 60,
-          fullScreen: false,
+          fullScreen: true,  // Ensure the particles cover the entire screen
           interactivity: {
             events: {
               onClick: {
@@ -34,8 +34,8 @@ const Banner = () => {
             },
             modes: {
               bubble: {
-                distance: 250,
-                size: 10,
+                distance: 25,
+                size: 1,
                 duration: 2,
                 opacity: 0.8,
               },
@@ -55,7 +55,7 @@ const Banner = () => {
               color: "#ffffff",
               distance: 150,
               enable: true,
-              opacity: 0.4,
+              opacity: 0.2,
               width: 1,
             },
             collisions: {
@@ -74,9 +74,9 @@ const Banner = () => {
             number: {
               density: {
                 enable: true,
-                area: 800,
+                area: 1000,  // Increased density to make particles more noticeable
               },
-              value: 80,
+              value: 100,  // Adjust the number of particles for a fuller effect
             },
             opacity: {
               value: { min: 0.3, max: 0.7 },
@@ -85,14 +85,14 @@ const Banner = () => {
               type: "circle",
             },
             size: {
-              value: { min: 1, max: 4 },
+              value: { min: 2, max: 6 },  // Increased size range for better visibility
             },
           },
           detectRetina: true,
         }}
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-        <h1 className="text-4xl font-extrabold mb-4">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10">
+        <h1 className="text-5xl font-extrabold mb-4">
           Supun Devendra
         </h1>
         <p className="text-lg font-medium">
