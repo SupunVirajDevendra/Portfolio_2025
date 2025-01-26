@@ -19,7 +19,7 @@ const Banner = () => {
         loaded={particlesLoaded}
         options={{
           fpsLimit: 60,
-          fullScreen: true,  // Ensure the particles cover the entire screen
+          fullScreen: true,
           interactivity: {
             events: {
               onClick: {
@@ -28,14 +28,14 @@ const Banner = () => {
               },
               onHover: {
                 enable: true,
-                mode: "grab",
+                mode: "repulse",
               },
               resize: true,
             },
             modes: {
               bubble: {
                 distance: 25,
-                size: 1,
+                size: 10,
                 duration: 2,
                 opacity: 0.8,
               },
@@ -48,9 +48,6 @@ const Banner = () => {
             },
           },
           particles: {
-            color: {
-              value: ["#ff6ec7", "#a29bfe", "#74b9ff"],
-            },
             links: {
               color: "#ffffff",
               distance: 150,
@@ -74,18 +71,18 @@ const Banner = () => {
             number: {
               density: {
                 enable: true,
-                area: 1000,  // Increased density to make particles more noticeable
+                area: 1000, 
               },
-              value: 100,  // Adjust the number of particles for a fuller effect
+              value: 100,  
             },
             opacity: {
               value: { min: 0.3, max: 0.7 },
             },
             shape: {
-              type: "circle",
+              type: "bubble",
             },
             size: {
-              value: { min: 2, max: 6 },  // Increased size range for better visibility
+              value: { min: 20, max: 60 },  // Increased size range for better visibility
             },
           },
           detectRetina: true,
