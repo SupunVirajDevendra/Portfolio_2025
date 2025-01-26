@@ -3,20 +3,17 @@ import type { Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 
-const Design = () => {
+const Banner = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    return await loadSlim(engine);
+    await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async () => {
-    },
-    []
-  );
+  const particlesLoaded = useCallback(async () => {}, []);
+
   return (
-    <div className="w-full h-full bg-hero-image bg-cover relative">
+    <div className="w-full h-screen bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 relative overflow-hidden">
       <Particles
-        className="w-full h-full"
+        className="absolute inset-0"
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
@@ -27,33 +24,38 @@ const Design = () => {
             events: {
               onClick: {
                 enable: true,
-                mode: "push",
+                mode: "bubble",
               },
               onHover: {
                 enable: true,
-                mode: "repulse",
+                mode: "grab",
               },
               resize: true,
             },
             modes: {
-              push: {
-                quantity: 4,
+              bubble: {
+                distance: 250,
+                size: 10,
+                duration: 2,
+                opacity: 0.8,
               },
-              repulse: {
+              grab: {
                 distance: 200,
-                duration: 0.4,
+                links: {
+                  opacity: 1,
+                },
               },
             },
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: ["#ff6ec7", "#a29bfe", "#74b9ff"],
             },
             links: {
               color: "#ffffff",
-              distance: 120,
+              distance: 150,
               enable: true,
-              opacity: 0.5,
+              opacity: 0.4,
               width: 1,
             },
             collisions: {
@@ -63,34 +65,42 @@ const Design = () => {
               direction: "none",
               enable: true,
               outModes: {
-                default: "bounce",
+                default: "out",
               },
-              random: false,
-              speed: 2,
+              random: true,
+              speed: 1.5,
               straight: false,
             },
             number: {
               density: {
                 enable: true,
-                area: 1000,
+                area: 800,
               },
-              value: 90,
+              value: 80,
             },
             opacity: {
-              value: 0.5,
+              value: { min: 0.3, max: 0.7 },
             },
             shape: {
               type: "circle",
             },
             size: {
-              value: { min: 1, max: 5 },
+              value: { min: 1, max: 4 },
             },
           },
           detectRetina: true,
         }}
       />
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+        <h1 className="text-4xl font-extrabold mb-4">
+          Supun Devendra
+        </h1>
+        <p className="text-lg font-medium">
+          Explore my projects, skills, and experience
+        </p>
+      </div>
     </div>
   );
 };
 
-export default Design;
+export default Banner;
