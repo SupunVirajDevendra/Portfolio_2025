@@ -11,7 +11,7 @@ const Banner = () => {
   const particlesLoaded = useCallback(async () => {}, []);
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 relative overflow-hidden">
+    <div className="w-full h-screen relative overflow-hidden bg-black">
       <Particles
         className="absolute inset-0"
         id="tsparticles"
@@ -24,35 +24,33 @@ const Banner = () => {
             events: {
               onClick: {
                 enable: true,
-                mode: "bubble",
+                mode: "repulse",
               },
               onHover: {
                 enable: true,
-                mode: "repulse",
+                mode: "grab",
               },
               resize: true,
             },
             modes: {
-              bubble: {
-                distance: 25,
-                size: 10,
-                duration: 2,
-                opacity: 0.8,
+              repulse: {
+                distance: 200,
+                duration: 0.4,
               },
               grab: {
                 distance: 200,
                 links: {
-                  opacity: 1,
+                  opacity: 0.05,
                 },
               },
             },
           },
           particles: {
             links: {
-              color: "#ffffff",
+              color: "#FF0000",
               distance: 150,
               enable: true,
-              opacity: 0.2,
+              opacity: 0.02,
               width: 1,
             },
             collisions: {
@@ -65,27 +63,35 @@ const Banner = () => {
                 default: "out",
               },
               random: true,
-              speed: 1.5,
+              speed: 0.5,
               straight: false,
+              trail: {
+                enable: true,
+                length: 10,
+                fillColor: "#000000",
+              },
             },
             number: {
               density: {
                 enable: true,
-                area: 1000, 
+                area: 1000,
               },
-              value: 100,  
+              value: 150,
             },
             opacity: {
-              value: { min: 0.3, max: 0.7 },
+              value: { min: 0.2, max: 0.8 },
             },
             shape: {
-              type: "bubble",
+              type: "circle",
             },
             size: {
-              value: { min: 20, max: 60 },  // Increased size range for better visibility
+              value: { min: 1, max: 3 },
             },
           },
           detectRetina: true,
+          background: {
+            color: "#FFFFFF",
+          },
         }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10">
